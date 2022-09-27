@@ -2,7 +2,7 @@
 
 def add_tuple(tuple_a=(), tuple_b=()):
     i = 0
-    while i < 0:
+    while i < 2:
         if len(tuple_a) == i:
             tuple_a[i] = 0
             return tuple_a
