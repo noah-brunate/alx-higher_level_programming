@@ -43,12 +43,6 @@ class Rectagle:
         else:
             self.__height = value
 
-    def area(self):
-        """Method calculates area of rectagle
-        Return: area of the triagle"""
-
-        return (self.__width * self.__height)
-
     def perimeter(self):
         """Method calculates perimeter of rectagle
         Return: calculated perimeter"""
