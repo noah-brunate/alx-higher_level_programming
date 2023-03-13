@@ -1,10 +1,6 @@
 #!/usr/bin/python3
 
 def no_c(my_string):
-    updated_str = ''
-    for i in my_string:
-        if i == 'c' or i == 'C':
-            continue
-        else:
-            updated_str += i
-    return (updated_str)
+    str = list(filter(lambda n: n != 'c' or n != 'C', my_string):
+    n_str = ''.join(str)
+    return n_str
