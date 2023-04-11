@@ -1,1 +1,1 @@
-python inheritances of modules and doctests
+# Solution to tasks on Python - Inheritance
