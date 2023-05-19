@@ -1,1 +1,1 @@
-mysql sub queries
+Solutions to high level language tasks
