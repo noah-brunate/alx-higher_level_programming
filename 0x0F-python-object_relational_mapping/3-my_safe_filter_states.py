@@ -9,7 +9,7 @@ if __name__ == '__main__':
     """
     detects sql injection
     """
-    sql = "SELECT * FROM states WHERE name = %s\
+    sql = "SELECT * FROM states WHERE name LIKE BINARY %s\
         ORDER BY states.id ASC"
 
     conn == MySQLdb.connect(
