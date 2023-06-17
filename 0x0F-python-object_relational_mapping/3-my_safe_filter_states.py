@@ -18,7 +18,7 @@ if __name__ == '__main__':
 
     cursor = conn.cursor()
 
-    cursor.execute(sql, (argv[4]))
+    cursor.execute(sql, argv[4])
 
     results = cursor.fetchall()
     for val in results:
