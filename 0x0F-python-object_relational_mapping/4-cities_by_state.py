@@ -14,7 +14,9 @@ if __name__ == '__main__':
 
     cursor = conn.cursor()
 
-    cursor.execute("SELECT * FROM cities")
+    cursor.execute("SELECT cities.id, cities.names, states.name \
+        FROM cities NATURAL JOIN states ON cities.state_id = states.id \
+        ORDER BY cities.id ASC")
 
     results = cursor.fetchall()
     for val in results:

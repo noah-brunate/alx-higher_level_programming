@@ -9,7 +9,7 @@ if __name__ == '__main__':
     """
     detects sql injection
     """
-    sql = "SELECT * FROM states WHERE name LIKE BINARY %s\
+    sql = "SELECT * FROM states WHERE name LIKE BINARY %(name)s\
         ORDER BY states.id ASC"
 
     conn == MySQLdb.connect(
@@ -18,7 +18,7 @@ if __name__ == '__main__':
 
     cursor = conn.cursor()
 
-    cursor.execute(sql, argv[4])
+    cursor.execute(sql, {'name': argv[4]})
 
     results = cursor.fetchall()
     for val in results:
