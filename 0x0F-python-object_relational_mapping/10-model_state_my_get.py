@@ -14,8 +14,8 @@ if __name__ == '__main__':
     session = sessionmaker(bind=engine)
     Session = session()
 
-    result = Session.query(States).filter(text("States.name=:val"),
-        params(val=sys.argv[4])).order_by(States.id).all()
+    result = Session.query(State).filter(text("States.name=:val"),
+        params(val=sys.argv[4])).order_by(State.id).all()
 
     for num in result:
         if num is None:

@@ -14,8 +14,8 @@ if __name__ == '__main__':
     session = sessionmaker(bind=engine)
     Session = session()
 
-    result = Session.query(States).filter(
-        States.name.like('%a%')).order_by(States.id).all()
+    result = Session.query(State).filter(
+        State.name.like('%a%')).order_by(State.id).all()
 
     for val in result:
         print("{}: {}".format(val.id, val.name))
