@@ -10,15 +10,17 @@ from sqlalchemy import text
 if __name__ == '__main__':
     engine = create_engine('mysql+mysqldb://{}\
                            :{}@localhost/{}'.format(
-                           sys.argv[1], sys.argv[2], sys.argv[3]), pool_pre_ping=True)
+                           sys.argv[1], sys.argv[2],
+                           sys.argv[3]), pool_pre_ping=True)
     Base.metadata.create_all(engine)
-    session = sessionmaker(bimd=engine)
+    session = sessionmaker(bind=engine)
     Session = session()
 
-    result = Session.query(States).filter(text("States.name=:val"), params(val=sys.argv[4]))
+    result = Session.query(States).filter(text("States.name=:\
+             val"), params(val=sys.argv[4])).order_by(States.id).all()
 
-    if result == None:
-        print("Not found")
-    else:
-        print(result.id)
-    Session.close()
+    for num in result:
+        if num is None:
+            print("Not found")
+        else:
+            print(num.id)
