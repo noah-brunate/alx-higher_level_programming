@@ -8,16 +8,14 @@ from sqlalchemy import text
 
 
 if __name__ == '__main__':
-    engine = create_engine('mysql+mysqldb://{}\
-                           :{}@localhost/{}'.format(
-                           sys.argv[1], sys.argv[2],
-                           sys.argv[3]), pool_pre_ping=True)
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
+        sys.argv[1], sys.argv[2], sys.argv[3]), pool_pre_ping=True)
     Base.metadata.create_all(engine)
     session = sessionmaker(bind=engine)
     Session = session()
 
-    result = Session.query(States).filter(text("States.name=:\
-             val"), params(val=sys.argv[4])).order_by(States.id).all()
+    result = Session.query(States).filter(text("States.name=:val"),
+        params(val=sys.argv[4])).order_by(States.id).all()
 
     for num in result:
         if num is None:
